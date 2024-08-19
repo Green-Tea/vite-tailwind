@@ -46,7 +46,7 @@ const router = createRouter({
 });
 
 // Set up navigation guard to check authentication
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
     const auth = getAuth();
     const currentUser = auth.currentUser;
 
