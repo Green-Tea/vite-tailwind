@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import router from '@/router/index.ts'
 import Footer from '@/components/Footer.vue'
-import productService from '@/services/productService.js'  // Import productService
+import productService from '@/services/productService.js'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 const menuItems = ref([
@@ -12,9 +12,9 @@ const menuItems = ref([
   { id: 3, name: 'About', link: '/about' }
 ]);
 
-const searchQuery = ref('');  // Ref for the search input
+const searchQuery = ref('');
 const auth = getAuth();
-const isAdminVisible = ref(false); // Ref to control the visibility of the admin link
+const isAdminVisible = ref(false);
 
 const handleSearch = async () => {
   if (searchQuery.value.trim() === '') return;

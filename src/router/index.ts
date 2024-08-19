@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
-import AboutView from '@/views/AboutView.vue'
-import EffectsView from '@/views/EffectsView.vue'
-import ProductView from '@/views/ProductView.vue'
-import ManageProductsView from '@/views/ManageProductsView.vue'
-import LoginView from '@/views/LoginView.vue'
+import HomeView from '../views/HomeView.vue'
+import AboutView from '../views/AboutView.vue'
+import EffectsView from '../views/EffectsView.vue'
+import ProductView from '../views/ProductView.vue'
+import ManageProductsView from '../views/ManageProductsView.vue'
+import LoginView from '../views/LoginView.vue'
 import { getAuth } from 'firebase/auth'
 
 // Create the router instance
