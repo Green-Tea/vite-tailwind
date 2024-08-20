@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Swiper Container for Mobile Carousel -->
-    <div class="swiper-container sm:hidden">
+    <div class="swiper-container sm:hidden mx-auto pb-10">
       <h2 class="text-4xl font-bold py-5 my-6">Products</h2>
       <swiper :slides-per-view="1" space-between="10" pagination navigation>
         <swiper-slide v-for="product in products" :key="product.id">
