@@ -37,7 +37,7 @@ const getProductById = async (id) => {
     }
 };
 
-// Get products by name
+// Get product by name
 const getProductByName = async (name) => {
     try {
         const productsRef = collection(db, "Products");
@@ -49,10 +49,10 @@ const getProductByName = async (name) => {
                 id: doc.id,
                 ...doc.data(),
             }));
-            return products;
+            return products[0];
         } else {
             console.error('No products found with the given name!');
-            return [];
+            return null;
         }
     } catch (error) {
         console.error('Error fetching product by name:', error);
