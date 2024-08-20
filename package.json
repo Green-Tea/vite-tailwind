@@ -15,6 +15,7 @@
     "firebase": "10.13",
     "firebase-auth": "^0.1.2",
     "sentiment": "^5.0.2",
+    "swiper": "^11.1.9",
     "vue": "^3.4.37",
     "vue-router": "^4.4.3"
   },

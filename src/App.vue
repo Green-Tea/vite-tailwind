@@ -42,7 +42,7 @@
 
         <!-- Right Section: Menu Items -->
         <ul class="md:flex md:items-center">
-          <li class="md:mx-4" v-for="menuItem in menuItems" :key="menuItem.id">
+          <li class="md:mx-4" v-for="menuItem in filteredMenuItems" :key="menuItem.id">
             <RouterLink :to="menuItem.link" class="hover:text-amber-400 md:text-xl">
               {{ menuItem.name }}
             </RouterLink>
@@ -64,7 +64,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, watch, computed } from 'vue'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
 import router from '@/router/index.ts'
 import Footer from '@/components/Footer.vue'
@@ -84,6 +84,16 @@ const isAdminVisible = ref(false);
 const allProducts = ref([]);
 const filteredProducts = ref([]);
 const route = useRoute();
+
+// Computed property to filter menu items based on screen size
+const filteredMenuItems = computed(() => {
+  return menuItems.value.filter(item => {
+    if (window.innerWidth < 640) { // Mobile view
+      return item.name !== 'Categories';
+    }
+    return true; // Show all items in larger screens
+  });
+});
 
 const handleSearch = async () => {
   if (searchQuery.value.trim() === '') return;
