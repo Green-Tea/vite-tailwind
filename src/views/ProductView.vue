@@ -1,6 +1,6 @@
 <template>
     <div class="container mx-auto px-4 py-6">
-        <button @click="goBack" class="text-blue-500 hover:underline mb-4">← Back to Home</button>
+        <button @click="goBack" class="text-blue-500 hover:underline mb-4">← Go Back</button>
         <div v-if="product.id" class="max-w-auto mx-auto bg-white shadow-lg rounded-lg overflow-hidden flex flex-col h-full">
             <div class="md:flex flex-1">
                 <div class="md:w-1/2">
@@ -11,13 +11,14 @@
                         <h1 class="text-2xl md:text-3xl font-bold mb-4">{{ product.name }}</h1>
                         <h2 class="text-xl md:text-2xl font-bold mb-4">฿{{ product.price }}</h2>
                         <p class="mb-4">{{ product.description }}</p>
-                        <div class="grid grid-cols-2 gap-4 mt-6">
+                        <div class="grid grid-cols-2 gap-4 mt-6 cursor-pointer">
                             <EffectCard
                                 v-for="(effect, index) in effects"
                                 :key="index"
                                 :effect="effect.effect"
                                 :description="effect.description"
                                 :image="effect.image"
+                                @click="onEffectClick(effect.effect)"
                             />
                         </div>
                     </div>
@@ -70,6 +71,10 @@ onMounted(async () => {
 });
 
 const goBack = () => {
-    router.push('/');  // Navigate to the home page
+    router.back();
 };
+
+const onEffectClick = (effect) => {
+    router.push({ name: 'effects', params: { effect } });
+}
 </script>

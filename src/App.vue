@@ -8,7 +8,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 const menuItems = ref([
   { id: 1, name: 'Home', link: '/' },
-  { id: 2, name: 'Effects', link: '/effects' },
+  { id: 2, name: 'Categories', link: '/categories' },
   { id: 3, name: 'About', link: '/about' }
 ]);
 

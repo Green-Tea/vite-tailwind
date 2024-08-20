@@ -11,7 +11,7 @@ const props = defineProps({
 const router = useRouter();
 
 const onEffectClick = (effect) => {
-    router.push({ name: 'EffectView', params: { effect } });
+    router.push({ name: 'effects', params: { effect } });
 };
 
 </script>

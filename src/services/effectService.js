@@ -1,5 +1,5 @@
 import { db } from '@/js/firebase';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
 
 async function getEffectById(id) {
     try {
@@ -21,6 +21,21 @@ async function getEffectById(id) {
     }
 };
 
+const getAllEffects = async () => {
+    try {
+        const effectsSnapshot = await getDocs(collection(db, "Effects"));
+        const effects = effectsSnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data(),
+        }));
+        return effects;
+    } catch (error) {
+        console.error('Error fetching effects:', error);
+        throw error;
+    }
+};
+
 export default {
-    getEffectById
+    getEffectById,
+    getAllEffects
 }

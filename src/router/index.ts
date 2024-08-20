@@ -17,7 +17,7 @@ const router = createRouter({
             component: HomeView
         },
         {
-            path: '/effects',
+            path: '/categories/:effect?',
             name: 'effects',
             component: EffectsView
         },
